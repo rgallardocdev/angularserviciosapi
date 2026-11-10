@@ -1,0 +1,34 @@
+<p>comics-component works!</p>
+<h5 style="color:blue;">
+    {{mensaje}}
+</h5>
+
+<div class="card" style="width: 18rem;">
+    <img src="{{_comic.imagen}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{_comic.titulo}}</h5>
+        <p class="card-text">{{_comic.descripcion}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
+<br><br>
+
+<table>
+    <tr>
+        @for(tebeo of arrayComics; track tebeo){
+            <td>
+                <div class="card" style="width: 18rem;">
+                    <img src="{{tebeo.imagen}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{tebeo.titulo}}</h5>
+                        <p class="card-text">{{tebeo.descripcion}}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </td>
+        }
+    </tr>
+</table>
+
+
