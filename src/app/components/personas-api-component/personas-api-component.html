@@ -1,0 +1,31 @@
+<p>Componente de Personas {{mensajeSaludo}}</p>
+
+@for(persona of arrayPersonas; track persona){
+    <div>
+        <label>{{persona.nombre}}</label>
+        <ul>
+            <li>ID: {{persona.idPersona}}</li>
+            <li>Email: {{persona.email}}</li>
+            <li>Edad: {{persona.edad}}</li>
+        </ul>
+    </div>
+}
+
+<form #form="ngForm">
+    <label>Introduzca el ID: </label><input type="text" name="cajaid" #cajaid><br>
+    <button (click)="buscarPersona()">Buscar Persona</button>
+</form>
+
+@if(_persona){
+    <div>
+        <label>{{_persona.nombre}}</label>
+        <ul>
+            <li>ID: {{_persona.idPersona}}</li>
+            <li>Email: {{_persona.email}}</li>
+            <li>Edad: {{_persona.edad}}</li>
+        </ul>
+    </div>
+}
+
+
+

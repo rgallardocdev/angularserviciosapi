@@ -1,0 +1,43 @@
+<p>Pagina de Hospitales: {{mensajeSaludo}}</p>
+
+<table>
+    <tr>
+        <td>
+            @for(hospital of arrayHospitales ; track hospital){
+                {{hospital.nombre}}
+                <ul>
+                    <li>ID: {{hospital.idHospital}}</li>
+                    <li>Direccion {{hospital.direccion}}</li>
+                    <li>Telefono: {{hospital.telefono}}</li>
+                    <li>Camas: {{hospital.camas}}</li>
+                </ul>
+            }
+        </td>
+        <td style="width: 150px;">
+
+        </td>
+        <td>
+            <form #Form = "ngForm">
+                <label>Seleccione Hospital para buscar  </label><input type="text" name="cajaid" #cajaid><br>                
+                <!-- <select style="width: 120px;">
+                    @for(hospital of arrayHospitales ; track hospital){
+                        <option value="{{hospital.idHospital}}" name="valorHospital" #valorHospital>{{hospital.nombre}}</option>
+                    }
+                </select> -->
+                <button (click)="buscarHospital()">Buscar</button>
+            </form>
+            <div>
+                <label>{{_hospital.nombre}}</label>
+                <ul>
+                    <li>ID: {{_hospital.idHospital}}</li>
+                    <li>Direccion {{_hospital.direccion}}</li>
+                    <li>Telefono: {{_hospital.telefono}}</li>
+                    <li>Camas: {{_hospital.camas}}</li>
+                </ul>
+            </div>            
+        </td>
+    </tr>
+</table>
+
+
+
