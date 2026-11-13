@@ -14,6 +14,11 @@ import { miServicePersonas } from './services/service.personas';
 import { FormsModule } from '@angular/forms';
 import { HospitalesApiComponent } from './components/hospitales-api-component/hospitales-api-component';
 import { miServiceHospitales } from './services/service.hospitales';
+import { CustomersApiComponent } from './components/customers-api-component/customers-api-component';
+import { miServiceCustomers } from './services/service.customers';
+import { CochesApiComponent } from './components/coches-api-component/coches-api-component';
+import { miServiceCoches } from './services/service.coches';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +29,8 @@ import { miServiceHospitales } from './services/service.hospitales';
     ClientesComponent,
     PersonasApiComponent,
     HospitalesApiComponent,
+    CustomersApiComponent,
+    CochesApiComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
@@ -32,7 +39,9 @@ import { miServiceHospitales } from './services/service.hospitales';
     miServiceComics,
     miServiceClientes,
     miServicePersonas,
-    miServiceHospitales
+    miServiceHospitales,
+    miServiceCustomers,
+    miServiceCoches
   ],
   bootstrap: [App],
 })

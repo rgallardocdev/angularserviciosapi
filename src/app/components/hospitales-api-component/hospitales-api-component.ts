@@ -15,6 +15,7 @@ export class HospitalesApiComponent implements OnInit {
   arrayHospitales: miHospital[];
 
   @ViewChild("cajaid") _cajaid!: ElementRef;
+  @ViewChild("selectid") _selectid!: ElementRef;
   _hospital!: miHospital;
 
   constructor(
@@ -33,6 +34,12 @@ export class HospitalesApiComponent implements OnInit {
   async buscarHospital(){
     let id = parseInt(this._cajaid.nativeElement.value);
     this._hospital = await this._service.getBuscarHospitalAsync(id);
+    this._cdr.detectChanges();
+  }
+
+  async buscarHospitalSelect(){
+    let selectid = parseInt(this._selectid.nativeElement.value);
+    this._hospital = await this._service.getBuscarHospitalAsync(selectid);
     this._cdr.detectChanges();
   }
 

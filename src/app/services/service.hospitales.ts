@@ -13,7 +13,7 @@ export class miServiceHospitales{
     ){}
 
     getSaludo(): string{
-        return "Api de Hospitales"
+        return "Api de Hospitales";
     }
 
     async getHospitalesAsync(): Promise<miHospital[]>{
