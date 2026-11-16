@@ -1,0 +1,40 @@
+<p>{{mensajeSaludo}}</p>
+<br>
+@if(_cocheParametro){
+    <div class="card border4 shadow-sm rounded-4 overflow-hidden w-100 mx-auto" style="max-width: 500px;">
+    <!-- Imagen y idCoche -->
+        <div class="position-relative">
+            <img [src]="_cocheParametro.imagen" 
+                class="card-img-top object-fit-cover" 
+                style="height: 260px;" 
+                [alt]="_cocheParametro.marca + ' ' + _cocheParametro.modelo">
+            <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
+            ID #{{ _cocheParametro.idCoche }}
+            </span>
+        </div>
+
+        <!-- Marca, Modelo y Conductor -->
+        <div class="card-body p-4">
+            <div class="text-uppercase text-primary fw-bold small mb-1">
+            {{ _cocheParametro.marca }}
+            </div>
+            
+            <h2 class="h4 fw-bold text-dark mb-3">
+            {{ _cocheParametro.modelo }}
+            </h2>
+
+            <hr class="text-muted opacity-25">
+
+            <div class="d-flex align-items-center bg-light p-3 rounded-3">
+            <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 42px; height: 42px;">
+                <i class="bi bi-person-fill fs-5"></i>
+            </div>
+            <div>
+                <div class="text-muted small">Conductor asignado</div>
+                <div class="fw-semibold text-dark">{{ _cocheParametro.conductor }}</div>
+            </div>
+            </div>
+        </div>
+    </div>
+}
+<br>            

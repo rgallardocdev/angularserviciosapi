@@ -17,7 +17,10 @@ export class CochesApiComponent implements OnInit {
   arrayCochesMarca: miCoche[];
 
   @ViewChild("cajamarca") _cajamarca!: ElementRef;
+  @ViewChild("cajaid") _cajaid!: ElementRef;
+  @ViewChild("selectid") _selectid!: ElementRef;
   _coche! : miCoche;
+  _cocheID!: miCoche;
   
   constructor(
     private _service: miServiceCoches,
@@ -38,6 +41,20 @@ export class CochesApiComponent implements OnInit {
   async buscarCocheMarca(): Promise<void>{
     let marca = this._cajamarca.nativeElement.value;
     this.arrayCochesMarca = await this._service.getCocheMarcaAsync(marca);
+
+    this._cdr.detectChanges();
   }
 
+  async buscarCocheID(): Promise<void>{
+    let id = this._cajaid.nativeElement.value;
+    this._cocheID = await this._service.getCocheIDAsync(id);
+
+    this._cdr.detectChanges();
+  }
+
+  async buscarCocheIDSelect(): Promise<void>{
+    let id = this._selectid.nativeElement.value;
+    this._cocheID = await this._service.getCocheIDAsync(id);
+    this._cdr.detectChanges();
+  }
 }

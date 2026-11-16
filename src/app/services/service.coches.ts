@@ -19,13 +19,9 @@ export class miServiceCoches{
     async getCochesAsync(): Promise<miCoche[]>{
         let request = "/api/Coches";
         let ruta = environment.apiCoches + request;
-
         const response = await firstValueFrom(this._http.get<any>(ruta));
-
         console.log(response);
-
         return response;
-
     }
 
     async getCocheMarcaAsync(marca:string): Promise<miCoche[]>{
@@ -33,6 +29,13 @@ export class miServiceCoches{
         let ruta = environment.apiCoches + request;
         let response = await firstValueFrom(this._http.get<miCoche[]>(ruta));
         console.log(response);
+        return response;
+    }
+
+    async getCocheIDAsync(ID:number): Promise<miCoche>{
+        let request = "/api/coches/findcoche/" + ID;
+        let ruta = environment.apiCoches + request;
+        let response = await firstValueFrom(this._http.get<miCoche>(ruta));
         return response;
     }
 }

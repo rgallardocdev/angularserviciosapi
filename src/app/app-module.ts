@@ -18,7 +18,9 @@ import { CustomersApiComponent } from './components/customers-api-component/cust
 import { miServiceCustomers } from './services/service.customers';
 import { CochesApiComponent } from './components/coches-api-component/coches-api-component';
 import { miServiceCoches } from './services/service.coches';
-
+import { DetalleCocheComponent } from './components/detalle-coche-component/detalle-coche-component';
+import { MenuHospitalesComponent } from './components/menu-hospitales-component/menu-hospitales-component';
+import { DetalleHospitalComponent } from './components/detalle-hospital-component/detalle-hospital-component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import { miServiceCoches } from './services/service.coches';
     HospitalesApiComponent,
     CustomersApiComponent,
     CochesApiComponent,
+    DetalleCocheComponent,
+    MenuHospitalesComponent,
+    DetalleHospitalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [
@@ -41,7 +46,7 @@ import { miServiceCoches } from './services/service.coches';
     miServicePersonas,
     miServiceHospitales,
     miServiceCustomers,
-    miServiceCoches
+    miServiceCoches,
   ],
   bootstrap: [App],
 })

@@ -1,0 +1,9 @@
+<p>Pagina de enlaces a Hospitales</p>
+
+<ul>
+    @for(hospital of arrayHospitales; track hospital){
+        <li>
+            <a [routerLink]="['/detallehospital/' + hospital.idHospital]"> Hospital {{hospital.nombre}}</a>
+        </li>
+    }
+</ul>

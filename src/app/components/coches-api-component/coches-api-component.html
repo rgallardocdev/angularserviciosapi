@@ -1,92 +1,151 @@
-<p>Pagina de {{mensajeSaludo}}</p>
+<p style="text-align: center;">Pagina de {{mensajeSaludo}}</p>
 
-<table>
-    <tr style="width: 600px;">
-        <td>
+<table style="width: 100%; border-collapse: collapse; border: 2px solid #333;">
+    <tr style="width: 600px; ">
+        <td style="padding: 8px; border: 2px solid #333; vertical-align: top;">
             @for(coche of arrayCoches; track coche){
                 <div class="card border4 shadow-sm rounded-4 overflow-hidden w-100 mx-auto" style="max-width: 500px;">
                 <!-- Imagen y idCoche -->
-                <div class="position-relative">
-                    <img [src]="coche.imagen" 
-                        class="card-img-top object-fit-cover" 
-                        style="height: 260px;" 
-                        [alt]="coche.marca + ' ' + coche.modelo">
-                    <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
-                    ID #{{ coche.idCoche }}
-                    </span>
-                </div>
+                    <div class="position-relative">
+                        <img [src]="coche.imagen" 
+                            class="card-img-top object-fit-cover" 
+                            style="height: 260px;" 
+                            [alt]="coche.marca + ' ' + coche.modelo">
+                        <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
+                        ID #{{ coche.idCoche }}
+                        </span>
+                    </div>
 
-                <!-- Marca, Modelo y Conductor -->
-                <div class="card-body p-4">
-                    <div class="text-uppercase text-primary fw-bold small mb-1">
-                    {{ coche.marca }}
-                    </div>
-                    
-                    <h2 class="h4 fw-bold text-dark mb-3">
-                    {{ coche.modelo }}
-                    </h2>
+                    <!-- Marca, Modelo y Conductor -->
+                    <div class="card-body p-4">
+                        <div class="text-uppercase text-primary fw-bold small mb-1">
+                        {{ coche.marca }}
+                        </div>
+                        
+                        <h2 class="h4 fw-bold text-dark mb-3">
+                        {{ coche.modelo }}
+                        </h2>
 
-                    <hr class="text-muted opacity-25">
+                        <hr class="text-muted opacity-25">
 
-                    <div class="d-flex align-items-center bg-light p-3 rounded-3">
-                    <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 42px; height: 42px;">
-                        <i class="bi bi-person-fill fs-5"></i>
+                        <div class="d-flex align-items-center bg-light p-3 rounded-3">
+                        <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 42px; height: 42px;">
+                            <i class="bi bi-person-fill fs-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small">Conductor asignado</div>
+                            <div class="fw-semibold text-dark">{{ coche.conductor }}</div>
+                        </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="text-muted small">Conductor asignado</div>
-                        <div class="fw-semibold text-dark">{{ coche.conductor }}</div>
-                    </div>
-                    </div>
-                </div>
                 </div>
                 <br>
             }
         </td>
         
-        <td>
-            <p>Buscar un coche</p>
+        <td style="vertical-align: top; padding: 8px; border: 2px solid #333;">
+            <p style="text-align: center;">Buscar un coche por la marca</p>
             <form #form="ngForm">
                 <label>Introduzca la marca: </label><input type="text" name="cajamarca" #cajamarca/>
                 <button (click)="buscarCocheMarca()">Buscar</button>
             </form>
+            <br>
             @for(coche of arrayCochesMarca; track coche){
                 <div class="card border4 shadow-sm rounded-4 overflow-hidden w-100 mx-auto" style="max-width: 500px;">
                 <!-- Imagen y idCoche -->
-                <div class="position-relative">
-                    <img [src]="coche.imagen" 
-                        class="card-img-top object-fit-cover" 
-                        style="height: 260px;" 
-                        [alt]="coche.marca + ' ' + coche.modelo">
-                    <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
-                    ID #{{ coche.idCoche }}
-                    </span>
-                </div>
+                    <div class="position-relative">
+                        <img [src]="coche.imagen" 
+                            class="card-img-top object-fit-cover" 
+                            style="height: 260px;" 
+                            [alt]="coche.marca + ' ' + coche.modelo">
+                        <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
+                        ID #{{ coche.idCoche }}
+                        </span>
+                    </div>
 
-                <!-- Marca, Modelo y Conductor -->
-                <div class="card-body p-4">
-                    <div class="text-uppercase text-primary fw-bold small mb-1">
-                    {{ coche.marca }}
-                    </div>
-                    
-                    <h2 class="h4 fw-bold text-dark mb-3">
-                    {{ coche.modelo }}
-                    </h2>
+                    <!-- Marca, Modelo y Conductor -->
+                    <div class="card-body p-4">
+                        <div class="text-uppercase text-primary fw-bold small mb-1">
+                        {{ coche.marca }}
+                        </div>
+                        
+                        <h2 class="h4 fw-bold text-dark mb-3">
+                        {{ coche.modelo }}
+                        </h2>
 
-                    <hr class="text-muted opacity-25">
+                        <h2>
+                            <a [routerLink]="['/detallecoche/' + coche.idCoche]"> Pagina con detalle del coche</a>
+                        </h2>
 
-                    <div class="d-flex align-items-center bg-light p-3 rounded-3">
-                    <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 42px; height: 42px;">
-                        <i class="bi bi-person-fill fs-5"></i>
+                        <hr class="text-muted opacity-25">
+
+                        <div class="d-flex align-items-center bg-light p-3 rounded-3">
+                        <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 42px; height: 42px;">
+                            <i class="bi bi-person-fill fs-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small">Conductor asignado</div>
+                            <div class="fw-semibold text-dark">{{ coche.conductor }}</div>
+                        </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="text-muted small">Conductor asignado</div>
-                        <div class="fw-semibold text-dark">{{ coche.conductor }}</div>
-                    </div>
-                    </div>
-                </div>
                 </div>
                 <br>
             }            
+        </td>
+        <td style="vertical-align: top; padding: 8px; border: 2px solid #333;">
+            <p style="text-align: center;">Buscar un coche por ID</p>
+            <form #form = "ngForm">
+                <label>Introduzca el ID del coche: </label><input type="number" name="cajaid" #cajaid style="width: 100px;"/>
+                <button (click)="buscarCocheID()">Buscar Coche</button><br>
+                <label>O elija un coche del listado</label>
+                <select name="selectid" #selectid>
+                    @for(coche of arrayCoches; track coche){
+                        <option value="{{coche.idCoche}}">{{coche.marca}}-{{coche.modelo}}</option>
+                    }       
+                </select>
+                <button (click)="buscarCocheIDSelect()">Buscar Coche</button>  
+                <br>       
+            </form>
+            <br>
+            @if(_cocheID){
+                <div class="card border4 shadow-sm rounded-4 overflow-hidden w-100 mx-auto" style="max-width: 500px;">
+                <!-- Imagen y idCoche -->
+                    <div class="position-relative">
+                        <img [src]="_cocheID.imagen" 
+                            class="card-img-top object-fit-cover" 
+                            style="height: 260px;" 
+                            [alt]="_cocheID.marca + ' ' + _cocheID.modelo">
+                        <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill">
+                        ID #{{ _cocheID.idCoche }}
+                        </span>
+                    </div>
+
+                    <!-- Marca, Modelo y Conductor -->
+                    <div class="card-body p-4">
+                        <div class="text-uppercase text-primary fw-bold small mb-1">
+                        {{ _cocheID.marca }}
+                        </div>
+                        
+                        <h2 class="h4 fw-bold text-dark mb-3">
+                        {{ _cocheID.modelo }}
+                        </h2>
+
+                        <hr class="text-muted opacity-25">
+
+                        <div class="d-flex align-items-center bg-light p-3 rounded-3">
+                            <div class="bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 42px; height: 42px;">
+                                <i class="bi bi-person-fill fs-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-muted small">Conductor asignado</div>
+                                <div class="fw-semibold text-dark">{{ _cocheID.conductor }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <br>            
         </td>
     </tr>
 </table>
